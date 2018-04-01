@@ -31,14 +31,17 @@ class Categorias extends Component {
 
   renderProduto(prod) {
     return (
-      <p key={prod.id} className='well'>
-        {prod.nome}
-        <button onClick={() => {
-          this.props.removeProduto(prod)
-            .then((res) => this.loadData(this.props.match.params.catId))
-        }} >Exluir</button>
-        <Link to={'/produtos/editar/' + prod.id} >Editar</Link>
-      </p>
+      <div className="well" style={{ width: '18rem;'}} key={prod.id}>
+        <div className="card-body">
+          <h4 className="card-title"><b>{prod.nome}</b></h4>
+          <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <Link className="btn btn-primary" to={'/produtos/editar/' + prod.id} >Editar</Link>
+          <button className="btn btn-danger" onClick={() => {
+            this.props.removeProduto(prod)
+              .then((res) => this.loadData(this.props.match.params.catId))
+          }} >Exluir</button>
+        </div>
+      </div>
     )
   }
 
