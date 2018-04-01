@@ -5,12 +5,15 @@ const api = axios.create({
 })
 const apis = {
     createProduto: (prod) => api.post('produtos', prod),
-    loadProdutos: (catId) => api.get('/produtos?categoria=' + catId),
+    loadProdutos: (catId) => {
+        return catId ? api.get('/produtos?categoria=' + catId)
+            : api.get('/produtos')
+    },
     removeProduto: (id) => api.delete('produtos/' + id),
-    readProduto: (id) => api.get('produtos/'+id),
+    readProduto: (id) => api.get('produtos/' + id),
     editProduto: (prod) => api.put('produtos/' + prod.id, prod),
 
-    readCategoria: (id) => api.get('categorias/'+id),
+    readCategoria: (id) => api.get('categorias/' + id),
     loadCategorias: () => api.get('categorias'),
     removeCategoria: (id) => api.delete('categorias/' + id),
     createCategoria: (cat) => api.post('categorias', cat),
