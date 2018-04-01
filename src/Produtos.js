@@ -96,7 +96,11 @@ class Produtos extends Component {
               className='form-control'
               placeholder='Nova categoria' />
           </div>
-          <Link to='/produtos/novo'>Novo Produto</Link>
+          <Link to='/produtos/novo'>
+          <button type="button" className="btn btn-outline-info">
+            Novo Produto
+          </button>
+          </Link>
         </div>
         <div className='col-md-10'>
           <h1>Produtos</h1>

@@ -1,8 +1,11 @@
 import React from 'react'
 
 const ProdutoHome = () => (
-    <div>
-        <h2>Produtos</h2>
+    <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+            <h1 className="display-4">Produtos</h1>
+            <p className="lead">Utilize a bara lateral para acessar os produtos por categorias </p>
+        </div>
     </div>
 )
 
