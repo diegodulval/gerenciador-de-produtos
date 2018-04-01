@@ -5,9 +5,6 @@ import logo from './assets/logo.png'
 import Produto from './Produto'
 
 class Home extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
     this.props.loadProdutos()
@@ -31,7 +28,7 @@ class Home extends Component {
           {Object.keys(this.props.produtos).map((key, i) => {
             const produto = this.props.produtos[key]
             return [
-              <Produto key={i} produto={produto} />,
+              <Produto {...this.props} key={i} produto={produto} />,
             ]
           })}
 

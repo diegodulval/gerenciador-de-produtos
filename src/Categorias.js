@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 import Produto from './Produto'
 
@@ -33,10 +32,8 @@ class Categorias extends Component {
   render() {
     return (
       <div>
-        <h1>{this.props.categoria.nome}</h1>
-        {this.props.produtos.length === 0 &&
-          <p className='alert alert-info'> Nenhum produto cadastrado </p>
-        }
+        <h3>{this.props.categoria.nome}</h3>
+        <hr/>
         <div className='row' >
           {this.props.produtos.length === 0 &&
             <p className='alert alert-info'> Nenhum produto cadastrado </p>
@@ -44,7 +41,7 @@ class Categorias extends Component {
           {Object.keys(this.props.produtos).map((key, i) => {
             const produto = this.props.produtos[key]
             return [
-              <Produto key={i} produto={produto} />,
+              <Produto {...this.props} key={i} produto={produto} />,
             ]
           })}
         </div>

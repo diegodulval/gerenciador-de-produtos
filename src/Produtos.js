@@ -121,9 +121,7 @@ class Produtos extends Component {
               <Route exact path={match.url } render={(props) => {
                 return (
                   <ProdutosHome
-                    {...props}
-                    loadProdutos={this.props.loadProdutos}
-                    produtos={this.props.produtos}
+                    {...this.props}
                     />
                 )
               }} />

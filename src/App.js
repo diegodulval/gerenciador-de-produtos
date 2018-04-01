@@ -89,6 +89,7 @@ class App extends Component {
                   {...props}
                   loadProdutos={this.loadProdutos}
                   produtos={this.state.produtos}
+                  removeProduto={this.removeProduto}
                   />
               )
             }} />

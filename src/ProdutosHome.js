@@ -15,7 +15,7 @@ class ProdutoHome extends Component {
                 {Object.keys(this.props.produtos).map((key, i) => {
                     const produto = this.props.produtos[key]
                     return [
-                        <Produto key={i} produto={produto} />,
+                        <Produto {...this.props} key={i} produto={produto} />,
                     ]
                 })}
             </div>

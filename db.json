@@ -2,28 +2,33 @@
   "produtos": [
     {
       "id": 1,
-      "nome": "Sabao Liquido",
-      "categoria": 1
-    },
-    {
-      "id": 2,
-      "nome": "Detergente",
+      "nome": "Sabonete",
+      "descricao": "250g - Liquido - cremoso ",
       "categoria": "1"
     },
     {
+      "nome": "Tênis Buut",
+      "descricao": "Esse é hardcore.",
+      "categoria": "3",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "nome": "Pipoca",
+      "descricao": "300g - para microondas",
+      "categoria": "2"
+    },
+    {
       "id": 4,
-      "nome": "Bolacha",
-      "categoria": 2
+      "nome": "Detergente",
+      "descricao": "Elimina manchas",
+      "categoria": "1"
     },
     {
       "id": 5,
-      "nome": "Bolo",
-      "categoria": 2
-    },
-    {
-      "id": 6,
-      "nome": "Pipoca",
-      "categoria": 2
+      "nome": "Tênis Nike",
+      "descricao": "Caro demais",
+      "categoria": "3"
     }
   ],
   "categorias": [
@@ -34,6 +39,10 @@
     {
       "id": 2,
       "nome": "Alimentos"
+    },
+    {
+      "nome": "Calçados",
+      "id": 3
     }
   ]
 }

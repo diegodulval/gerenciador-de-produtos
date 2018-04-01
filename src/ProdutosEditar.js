@@ -15,6 +15,7 @@ class ProdutosEditar extends Component {
             .then((res) => {
                 this.setState({ produto: res.data })
                 this.refs.produto.value = res.data.nome
+                this.refs.descricao.value = res.data.descricao
                 this.refs.categoria.value = res.data.categoria
             })
     }
@@ -22,6 +23,7 @@ class ProdutosEditar extends Component {
         const produto = {
             id: this.props.match.params.id,
             nome: this.refs.produto.value,
+            descricao: this.refs.descricao.value,
             categoria: this.refs.categoria.value
         }
 
@@ -35,16 +37,27 @@ class ProdutosEditar extends Component {
             return <Redirect to={this.state.redirect} />
         }
         return (
-            <div>
-                <h2>Editar Produto</h2>
-                <select ref='categoria'>
-                    {categorias.map((cat) => <option key={cat.id} value={cat.id} > {cat.nome}</option>)}
-                </select>
-                <input
-                    ref='produto'
-                    placeholder='Nome do novo'
-                    className='form-control' />
-                <button onClick={this.handleEditProduto} className='btn btn-success'>Salvar</button>
+            <div className='form'>
+                <h4>Editar Produto</h4>
+                <div className='form-group  mt-3'>
+                    <label for="categoria">Categoria</label>
+                    <select className='form-control ' ref='categoria' id='categoria'>
+                        {categorias.map((cat) => <option key={cat.id} value={cat.id} > {cat.nome}</option>)}
+                    </select>
+                </div>
+                <div className="form-group mt-3">
+                    <label for="produto">Nome</label>
+                    <input
+                        id='produto'
+                        ref='produto'
+                        placeholder='Nome do novo produto'
+                        className='form-control' />
+                </div>
+                <div className="form-group mt-3">
+                    <label for="descricao">Descrição</label>
+                    <textarea ref='descricao' id='descricao' className="form-control" rows="3"></textarea>
+                </div>
+                <button onClick={this.handleEditProduto} className='btn btn-success mt-3'>Salvar</button>
             </div>
         )
     }
