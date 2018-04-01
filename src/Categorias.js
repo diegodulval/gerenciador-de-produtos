@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import Produto from './Produto'
+
 class Categorias extends Component {
   constructor(props) {
     super(props)
@@ -9,7 +11,6 @@ class Categorias extends Component {
     }
 
     this.loadData = this.loadData.bind(this)
-    this.renderProduto = this.renderProduto.bind(this)
   }
 
   loadData(id) {
@@ -29,22 +30,6 @@ class Categorias extends Component {
     }
   }
 
-  renderProduto(prod) {
-    return (
-      <div className="well" style={{ width: '18rem;'}} key={prod.id}>
-        <div className="card-body">
-          <h4 className="card-title"><b>{prod.nome}</b></h4>
-          <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <Link className="btn btn-primary" to={'/produtos/editar/' + prod.id} >Editar</Link>
-          <button className="btn btn-danger" onClick={() => {
-            this.props.removeProduto(prod)
-              .then((res) => this.loadData(this.props.match.params.catId))
-          }} >Exluir</button>
-        </div>
-      </div>
-    )
-  }
-
   render() {
     return (
       <div>
@@ -52,8 +37,19 @@ class Categorias extends Component {
         {this.props.produtos.length === 0 &&
           <p className='alert alert-info'> Nenhum produto cadastrado </p>
         }
-        {this.props.produtos.map(this.renderProduto)}
+        <div className='row' >
+          {this.props.produtos.length === 0 &&
+            <p className='alert alert-info'> Nenhum produto cadastrado </p>
+          }
+          {Object.keys(this.props.produtos).map((key, i) => {
+            const produto = this.props.produtos[key]
+            return [
+              <Produto key={i} produto={produto} />,
+            ]
+          })}
+        </div>
       </div>
+
     )
   }
 }

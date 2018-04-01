@@ -83,8 +83,15 @@ class App extends Component {
       <Router>
         <div>
           <Header />
-          <div className='container'>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' render={(props) => {
+              return (
+                <Home
+                  {...props}
+                  loadProdutos={this.loadProdutos}
+                  produtos={this.state.produtos}
+                  />
+              )
+            }} />
             <Route path='/produtos' render={(props) => {
               return (
                 <Produtos
@@ -107,7 +114,6 @@ class App extends Component {
 
             <Route exact path='/sobre' component={Sobre} />
           </div>
-        </div>
       </Router>
     )
   }
