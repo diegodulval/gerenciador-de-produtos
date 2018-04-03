@@ -3,14 +3,14 @@
     {
       "id": 1,
       "nome": "Sabonete",
-      "descricao": "250g - Liquido - cremoso ",
+      "descricao": "250g - Liquido",
       "categoria": "1"
     },
     {
+      "id": 2,
       "nome": "Tênis Buut",
-      "descricao": "Esse é hardcore.",
-      "categoria": "3",
-      "id": 2
+      "descricao": "Esse é hardcore. de verdade.",
+      "categoria": "3"
     },
     {
       "id": 3,

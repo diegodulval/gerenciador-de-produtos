@@ -20,6 +20,8 @@ class Home extends Component {
 
       </div>,
       <div className='container' >
+         <h3>Produtos em Destaque</h3>
+        <hr/>
         <div className='row' >
           {this.props.produtos.length === 0 &&
             <p className='alert alert-info'> Nenhum produto cadastrado </p>
