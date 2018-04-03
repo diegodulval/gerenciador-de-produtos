@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import ProdutosHome from './ProdutosHome'
 import Categorias from './Categorias'
@@ -94,7 +95,12 @@ class Produtos extends Component {
                 {this.props.categorias.length === 0 &&
                   <p className='alert alert-info'> Nenhuma categoria cadastrada </p>
                 }
-                {categorias.map(cat => this.renderCategorias(cat))}
+                <ReactCSSTransitionGroup
+                  transitionName="fade"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
+                  {categorias.map(cat => this.renderCategorias(cat))}
+                </ReactCSSTransitionGroup>
               </ul>
               <div className='well well-sm'>
                 <input type='text'
@@ -118,11 +124,11 @@ class Produtos extends Component {
                   </Link>
                 </div>
               </div>
-              <Route exact path={match.url } render={(props) => {
+              <Route exact path={match.url} render={(props) => {
                 return (
                   <ProdutosHome
                     {...this.props}
-                    />
+                  />
                 )
               }} />
               <Route exact path={match.url + '/novo'} render={(props) => {

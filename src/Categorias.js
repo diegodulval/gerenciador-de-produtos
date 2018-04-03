@@ -33,17 +33,22 @@ class Categorias extends Component {
     return (
       <div>
         <h3>{this.props.categoria.nome}</h3>
-        <hr/>
+        <hr />
         <div className='row' >
           {this.props.produtos.length === 0 &&
             <p className='alert alert-info'> Nenhum produto cadastrado </p>
           }
-          {Object.keys(this.props.produtos).map((key, i) => {
-            const produto = this.props.produtos[key]
-            return [
-              <Produto {...this.props} key={i} produto={produto} />,
-            ]
-          })}
+
+         
+
+            {Object.keys(this.props.produtos).map((key, i) => {
+              const produto = this.props.produtos[key]
+              return [
+                <Produto {...this.props} key={i} produto={produto} />,
+              ]
+            })}
+
+
         </div>
       </div>
 
